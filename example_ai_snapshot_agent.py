@@ -9,12 +9,8 @@ Usage:
     python example_ai_snapshot_agent.py
 """
 
-import os
 import sys
 from pathlib import Path
-
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
 
 from media_monitor.snapshot_reporting import (
     create_snapshot,
@@ -23,11 +19,15 @@ from media_monitor.snapshot_reporting import (
 )
 from media_monitor.utils import get_logger
 
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+
 log = get_logger(__name__)
 
 # ────────────────────────────────────────────────────────────────────────────
 #  EXAMPLE 1: CREATE A SINGLE SNAPSHOT
 # ────────────────────────────────────────────────────────────────────────────
+
 
 def example_single_snapshot():
     """Example: Create a snapshot of a publication."""
@@ -100,7 +100,7 @@ def example_multiple_snapshots():
         if result:
             print(f"  ✓ Created: {result.name}")
         else:
-            print(f"  ✗ Failed to create snapshot")
+            print("  ✗ Failed to create snapshot")
 
 
 # ────────────────────────────────────────────────────────────────────────────
@@ -288,7 +288,7 @@ Format as JSON."""
             ],
         )
 
-        print(f"\n✓ AI Analysis Complete:")
+        print("\n✓ AI Analysis Complete:")
         print(f"\nResponse:\n{response.content[0].text}")
 
     except Exception as e:
@@ -328,7 +328,7 @@ def example_complete_workflow():
             snapshots.append(result)
             print(f"  ✓ Snapshot {i} created")
 
-    print(f"\nStep 2: Creating 24-hour coverage report...")
+    print("\nStep 2: Creating 24-hour coverage report...")
 
     coverage_data = [
         {
@@ -354,9 +354,9 @@ def example_complete_workflow():
     )
 
     if coverage_result:
-        print(f"  ✓ Coverage report created")
+        print("  ✓ Coverage report created")
 
-    print(f"\nStep 3: Updating tracker...")
+    print("\nStep 3: Updating tracker...")
 
     tracker_result = create_or_update_tracker(
         records=coverage_data,
@@ -364,9 +364,9 @@ def example_complete_workflow():
     )
 
     if tracker_result:
-        print(f"  ✓ Tracker updated")
+        print("  ✓ Tracker updated")
 
-    print(f"\n✓ Complete workflow finished!")
+    print("\n✓ Complete workflow finished!")
     print(f"  Snapshots: {len(snapshots)}")
     print(f"  Coverage report: {coverage_result.name if coverage_result else 'Failed'}")
     print(f"  Tracker: {tracker_result.name if tracker_result else 'Failed'}")

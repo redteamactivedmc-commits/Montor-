@@ -18,7 +18,6 @@ Usage:
 
 import argparse
 import sys
-from pathlib import Path
 
 from media_monitor.data_collection import (
     google_search_collect,
@@ -233,7 +232,7 @@ Examples:
 
     # ── Collect ───────────────────────────────────────────────────────────────
     collect_parser = subparsers.add_parser("collect", help="Collect coverage data")
-    collect_group  = collect_parser.add_mutually_exclusive_group(required=True)
+    collect_group = collect_parser.add_mutually_exclusive_group(required=True)
     collect_group.add_argument(
         "--google",
         action="store_true",

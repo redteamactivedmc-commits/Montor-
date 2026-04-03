@@ -247,7 +247,7 @@ def lookup_outlet(domain: str) -> dict:
 def extract_domain(url: str) -> str:
     """Extract bare domain from a URL string."""
     import re
-    match = re.search(r"(?:https?://)?(?:www\.)?([^/?\\s]+)", url)
+    match = re.search(r"(?:https?://)?(?:www\.)?([^/?]+)", url)
     return match.group(1).lower() if match else url.lower()
 
 
