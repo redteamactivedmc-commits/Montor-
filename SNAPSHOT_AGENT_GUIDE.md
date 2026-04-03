@@ -47,7 +47,7 @@ Required packages:
 - `python-docx>=0.8.11` - Create/edit Word documents
 - `selenium>=4.0.0` - Take website screenshots
 - `pillow>=9.0.0` - Image processing
-- `openpyxl>=3.6.0` - Excel manipulation
+- `openpyxl>=3.1.0` - Excel manipulation
 - `pandas>=1.3.0` - Data processing
 - `anthropic>=0.7.0` - AI API access
 
